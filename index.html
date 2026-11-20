@@ -54,9 +54,215 @@ a{text-underline-offset:3px}:focus-visible{outline:3px solid #bd887c;outline-off
 @media(max-width:760px){.hero{padding:45px 0 35px}.art{min-height:220px;font-size:82px}.section{padding:46px 0}.card{padding:19px}.customizer{top:auto;bottom:12px;right:12px;max-height:82vh}.brand{font-size:15px}.lang-switch{width:100%;justify-content:flex-start}.nav nav{flex-wrap:nowrap;overflow-x:auto;width:100%}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
+
+/* HER SECOND SPRING — warm textile / hearth visual refresh */
+:root{
+  --bg:#2c1d16;--card:#f5e9d8;--ink:#413026;--muted:#765f4d;
+  --green:#667b5e;--soft:#e6d8c5;--rose:#b66f65;--line:#87664f;
+  --wallpaper-opacity:.22;
+}
+body{background:#2d1d15;color:#f5eadb;font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif}
+body:before{opacity:calc(var(--wallpaper-opacity) * .72);mix-blend-mode:screen}
+header{background:rgba(47,31,23,.96);border-bottom:1px solid rgba(226,194,155,.25);box-shadow:0 8px 22px rgba(11,6,3,.28)}
+.brand{color:#f4e6d2;font-size:18px;letter-spacing:.045em}
+.nav nav a{color:#ead9c3;font-size:15px;border-radius:30px;padding:7px 12px;background:rgba(255,239,211,.055);border:1px solid rgba(226,194,155,.17)}
+.nav nav a:hover{background:#8d6550;color:#fff3e3}
+.lang-switch button{background:#4b3327;color:#f4e6d2;border:1px solid #9c7759;min-height:42px;font-size:13px}
+.lang-switch button.active{background:#c17d69;border-color:#d8a18c;color:#fffaf2}
+.hero{
+  position:relative;display:flex;align-items:flex-end;justify-content:flex-start;
+  width:100%;max-width:none;min-height:680px;height:min(760px,calc(100vh - 62px));
+  margin:0;padding:0 max(calc((100vw - 1120px)/2),4vw) 112px;
+  background-image:linear-gradient(90deg,rgba(40,25,17,.12),rgba(40,25,17,.02) 65%),linear-gradient(0deg,rgba(38,24,17,.2),transparent 48%),url('assets/mother-daughter-hero.webp');
+  background-size:cover;background-position:center 43%;background-repeat:no-repeat;overflow:hidden;
+  box-shadow:0 20px 55px rgba(16,9,5,.22)
+}
+.hero:after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,248,229,.5);pointer-events:none}
+.hero-copy{
+  position:relative;z-index:1;width:min(590px,82vw);margin-top:260px;
+  padding:30px 34px 28px;border-radius:23px;
+  color:#463126;background:linear-gradient(140deg,rgba(250,243,229,.94),rgba(239,223,199,.91));
+  border:3px solid #b99670;outline:1px dashed rgba(91,60,40,.68);outline-offset:-10px;
+  box-shadow:0 20px 48px rgba(38,21,13,.22),inset 0 0 24px rgba(255,255,255,.48);
+  backdrop-filter:blur(5px)
+}
+.hero .eyebrow{color:#805a42;font-size:15px;letter-spacing:.09em}
+.hero h1{font:700 clamp(38px,5.3vw,62px)/1.2 Georgia,"Noto Serif TC",serif;color:#4b3023;margin:13px 0 17px}
+.hero h1 em{color:#a85f58}
+.hero p{font-size:18px;line-height:1.75;color:#654b38;margin:0 0 22px}
+.hero .en{color:#735b49;font-size:.78em}
+.hero .art{display:none}
+.hero-cta{background:linear-gradient(145deg,#b56f61,#914e45);color:#fff7ea;border:2px solid #e2b9a1;box-shadow:0 7px 16px rgba(100,50,37,.24);padding:10px 23px}
+.scroll-thread{
+  position:absolute;z-index:2;left:50%;bottom:12px;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;
+  color:#fff5e4;text-shadow:0 2px 5px rgba(36,20,12,.65);font-size:13px;letter-spacing:.04em
+}
+.scroll-thread svg{width:48px;height:63px;overflow:visible;animation:thread-bob 2.1s ease-in-out infinite}
+.thread-line{fill:none;stroke:#f7dfb7;stroke-width:2.2;stroke-dasharray:4 4;stroke-linecap:round;animation:thread-stitch 3s linear infinite}
+.needle{stroke:#f8ead3;stroke-width:2.6;stroke-linecap:round;filter:drop-shadow(0 1px 2px #543522)}
+.needle-eye{fill:none;stroke:#f8ead3;stroke-width:2}
+.needle-point{fill:none;stroke:#f8ead3;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+@keyframes thread-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+@keyframes thread-stitch{to{stroke-dashoffset:-24}}
+.section{padding:68px 0;background:rgba(47,31,23,.22);position:relative}
+.section.alt{background:rgba(43,28,21,.72);border-top:1px solid rgba(226,194,155,.15);border-bottom:1px solid rgba(226,194,155,.15)}
+.section h2{color:#f4e5d0;font:700 clamp(30px,4vw,41px)/1.3 Georgia,"Noto Serif TC",serif;text-shadow:0 2px 12px rgba(10,6,4,.24)}
+.sub{color:#dfcbb3;font-size:17px;line-height:1.85;max-width:920px}
+.kicker{color:#d5aa7e}
+.en{color:var(--muted)}
+.section h2 .en{color:#dec8af;font-size:.56em;font-family:Georgia,serif;letter-spacing:.015em}
+.about-section{padding-top:76px;padding-bottom:76px}
+.intro-panel,.card,.stage-card,.chat,.detail,.warning,.customizer{
+  color:#483629;background-color:#f2e4d0;
+  background-image:repeating-linear-gradient(0deg,rgba(145,111,77,.045) 0,rgba(145,111,77,.045) 1px,transparent 1px,transparent 4px),linear-gradient(145deg,#fbf3e5,#ead8c0);
+  border:2px solid #b8936d;border-radius:22px;
+  outline:1px dashed rgba(119,82,52,.52);outline-offset:-8px;
+  box-shadow:0 12px 28px rgba(12,7,4,.19),inset 0 1px 0 rgba(255,255,255,.72)
+}
+.intro-panel{padding:34px}
+.intro-panel h2{color:#503729;text-shadow:none}
+.intro-panel h2 .en{color:#735943}
+.intro-panel p,.card p,.stage-card p,.detail p,.warning p{color:#654c3b;font-size:16px;line-height:1.82}
+.card h3,.stage-card h3,.detail h3{color:#553c2c}
+.card .en,.stage-card .en,.detail .en,.chat .en,.warning .en{color:#775f4d}
+.grid{gap:19px}
+.card{padding:24px;transition:transform .22s ease,box-shadow .22s ease}
+.card:hover{transform:translateY(-4px) rotate(-.25deg);box-shadow:0 17px 32px rgba(12,7,4,.24),inset 0 1px 0 rgba(255,255,255,.75)}
+.card h3{font-size:20px;line-height:1.45;margin:4px 0 11px}
+.card p{font-size:16px;line-height:1.85}
+.stage-card{padding:22px}
+.stage-card .num{color:#a86d5b}
+.chat{padding:27px}
+.chat textarea,.field input,.field textarea,.resource-tools input{
+  background:#fffaf0;color:#4a3426;border:1px solid #b99b79;border-radius:13px;min-height:50px;padding:12px 14px;font-size:17px
+}
+.chat textarea::placeholder,.resource-tools input::placeholder{color:#937a65}
+.bubble{background:#ead7bd;border:1px dashed #ad8c69;color:#4c3628;font-size:17px;line-height:1.85;padding:15px 18px}
+.bubble .en{color:#6c5441}
+.btn,.customize-trigger{
+  border-radius:999px;border:2px solid rgba(255,245,222,.82);font-weight:700;min-height:47px;
+  box-shadow:0 5px 0 rgba(62,38,25,.26),0 9px 16px rgba(15,8,5,.14);
+  transition:transform .16s ease,filter .16s ease
+}
+.btn:hover,.customize-trigger:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn:active,.customize-trigger:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(62,38,25,.25)}
+.btn{background:linear-gradient(145deg,#a96759,#87493f);color:#fff7eb}
+.btn.light{background:linear-gradient(145deg,#d6bd91,#b18d62);color:#432f23}
+.customize-trigger{background:linear-gradient(145deg,#77875e,#536d4f);color:#fff5e4;border-color:#c9d2ad;padding:8px 14px}
+.symptoms button{
+  width:100%;min-height:112px;text-align:left;padding:18px 19px;color:#483126;
+  border:2px solid rgba(255,247,231,.9);outline:1px dashed rgba(96,65,44,.54);outline-offset:-7px;
+  border-radius:17px;cursor:pointer;font-size:17px;line-height:1.55;
+  box-shadow:0 6px 0 rgba(33,20,12,.22),0 10px 18px rgba(10,6,3,.13);
+  transition:transform .18s ease,box-shadow .18s ease
+}
+.symptoms button:nth-child(6n+1){background:linear-gradient(145deg,#ead4b5,#cfaa81)}
+.symptoms button:nth-child(6n+2){background:linear-gradient(145deg,#e7c8bd,#c9897d)}
+.symptoms button:nth-child(6n+3){background:linear-gradient(145deg,#dbe0c9,#aab493)}
+.symptoms button:nth-child(6n+4){background:linear-gradient(145deg,#d4dce0,#9aabb6)}
+.symptoms button:nth-child(6n+5){background:linear-gradient(145deg,#e0d3df,#b39bb5)}
+.symptoms button:nth-child(6n){background:linear-gradient(145deg,#e9dfbb,#c5ad72)}
+.symptoms button strong{display:block;color:#483126;font-size:18px;margin-bottom:5px}
+.symptoms button .small{color:#604936}
+.symptoms button:hover{transform:translateY(-3px);box-shadow:0 9px 0 rgba(33,20,12,.18),0 14px 22px rgba(10,6,3,.18)}
+.detail{padding:27px}
+.warning{background-image:linear-gradient(145deg,#f5e5cf,#e7cdb8);border-left:5px solid #ad6d5b}
+.warning strong{color:#6b4233}
+.resource-tag{background:#e1d2b8;color:#5c432e;border:1px dashed #ad8b68}
+.resource-links a{
+  background:#d9e0ca;color:#43563d;border:1px solid #f7eddd;border-radius:999px;
+  padding:8px 14px;box-shadow:0 3px 0 rgba(65,45,28,.18);font-size:14px
+}
+.resource-links a:nth-child(4n+2){background:#ebd3c4;color:#6b3f34}
+.resource-links a:nth-child(4n+3){background:#d4dce0;color:#3d5360}
+.resource-links a:nth-child(4n){background:#e6dcb9;color:#65512c}
+.resource-links a:hover{filter:brightness(1.06);transform:translateY(-1px)}
+footer{background:rgba(30,19,14,.92);border-top:1px solid rgba(220,185,144,.2);color:#e3ceb5;padding:40px 0}
+footer .small{color:#cbb59c}
+.customizer{background-color:#f6ead9;z-index:25}
+.customizer h3{color:#51382a}
+.customizer .field label{color:#644b37}
+.customizer .small{color:#806850}
+.theme-swatches .swatch,.wallpaper-btn{border:2px solid #c3a37d;outline:1px dashed rgba(100,66,43,.4);outline-offset:-5px}
+.wallpaper-btn{border-radius:12px}
+.fireplace-atmosphere{
+  position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:0;
+  transition:opacity 1.3s ease;background:
+  radial-gradient(ellipse at 82% 90%,rgba(168,75,35,.22),transparent 28%),
+  linear-gradient(180deg,#342219 0%,#2b1b14 58%,#21150f 100%)
+}
+body:not(.home-view) .fireplace-atmosphere{opacity:1}
+body.home-view .fireplace-atmosphere{opacity:0}
+.fireplace-atmosphere:before{
+  content:"";position:absolute;inset:0;opacity:.24;
+  background:repeating-linear-gradient(92deg,transparent 0 42px,rgba(211,161,112,.09) 43px,transparent 46px),
+  repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 8px);
+  mix-blend-mode:screen
+}
+.fireplace-halo{
+  position:absolute;width:min(760px,78vw);height:430px;right:-5vw;bottom:-240px;
+  background:radial-gradient(ellipse,rgba(240,112,42,.28),rgba(171,65,30,.12) 38%,transparent 72%);
+  filter:blur(20px);animation:hearth-pulse 4.5s ease-in-out infinite alternate
+}
+.fireplace-frame{
+  position:absolute;right:clamp(14px,4vw,70px);bottom:-42px;width:min(370px,43vw);height:245px;
+  border:11px solid #593b2b;border-bottom:0;border-radius:48% 48% 0 0;
+  background:linear-gradient(180deg,#382219,#1d120d);box-shadow:0 0 0 3px rgba(196,145,94,.25),0 0 60px rgba(207,83,35,.18);
+  opacity:.42;overflow:hidden
+}
+.fireplace-frame:before{content:"";position:absolute;inset:7px 8px 0;border:2px solid rgba(190,139,89,.45);border-bottom:0;border-radius:48% 48% 0 0}
+.firebox{position:absolute;inset:20px 18px 0;border-radius:46% 46% 0 0;overflow:hidden;background:radial-gradient(ellipse at 50% 100%,rgba(247,112,38,.34),transparent 70%)}
+.flame{
+  position:absolute;bottom:37px;width:75px;height:150px;border-radius:55% 45% 48% 52%;
+  transform-origin:50% 100%;filter:blur(1.5px);
+  clip-path:polygon(50% 0,62% 20%,88% 41%,100% 70%,87% 91%,64% 100%,27% 99%,7% 81%,13% 58%,28% 38%,34% 20%);
+  background:linear-gradient(0deg,#b83b1d 0%,#f17a2c 48%,#ffd18b 78%,rgba(255,234,180,.75) 100%);
+  animation:flame-flicker 1.8s ease-in-out infinite alternate
+}
+.flame-one{left:17%;height:128px;width:64px;animation-delay:-.7s}
+.flame-two{left:37%;height:170px;width:78px;animation-delay:-.2s;background:linear-gradient(0deg,#b83b1d,#f68c35 53%,#ffe0a2)}
+.flame-three{left:58%;height:140px;width:69px;animation-delay:-1.1s}
+.flame-four{left:72%;height:102px;width:53px;animation-delay:-.4s}
+.fire-log{position:absolute;bottom:26px;width:180px;height:24px;border-radius:16px;background:linear-gradient(180deg,#8e5b38,#3c2418 60%,#24140d);box-shadow:inset 0 4px 6px rgba(255,191,112,.18),0 3px 10px #170e09}
+.log-one{left:15%;transform:rotate(13deg)}.log-two{right:12%;transform:rotate(-12deg);background:linear-gradient(180deg,#a46c42,#4e2b19 65%,#26150d)}
+.ember{position:absolute;bottom:50px;width:5px;height:5px;border-radius:50%;background:#ffb15d;box-shadow:0 0 12px 4px rgba(255,126,45,.65);animation:ember-rise 3.5s linear infinite}
+.ember-one{left:26%;animation-delay:-1.3s}.ember-two{left:53%;animation-delay:-2.1s}.ember-three{left:76%;animation-delay:-.2s}
+@keyframes flame-flicker{0%{transform:scaleX(.83) scaleY(.92) rotate(-3deg);filter:blur(1.4px) brightness(.9)}45%{transform:scaleX(1.08) scaleY(1.06) rotate(2deg);filter:blur(2px) brightness(1.18)}100%{transform:scaleX(.93) scaleY(.97) rotate(-1deg);filter:blur(1px) brightness(1.03)}}
+@keyframes ember-rise{0%{transform:translateY(0) scale(.6);opacity:0}20%{opacity:1}100%{transform:translateY(-150px) translateX(16px) scale(0);opacity:0}}
+@keyframes hearth-pulse{from{transform:scale(.92);opacity:.7}to{transform:scale(1.08);opacity:1}}
+@media(max-width:760px){
+ .hero{min-height:700px;height:auto;padding:300px 5vw 104px;background-position:55% 30%}
+ .hero-copy{width:100%;max-width:100%;margin-top:0;padding:24px 25px}
+ .hero h1{font-size:clamp(34px,9vw,48px)}
+ .hero p{font-size:16px}
+ .scroll-thread{bottom:8px;font-size:12px}
+ .fireplace-frame{width:260px;height:190px;right:-10px;bottom:-40px;opacity:.3}
+ .section{padding:47px 0}
+ .intro-panel{padding:23px}
+}
+@media(prefers-reduced-motion:reduce){.flame,.ember,.fireplace-halo,.scroll-thread svg,.thread-line{animation:none!important}}
+
 </style>
 </head>
-<body class="mode-bi">
+<body class="mode-bi home-view">
+
+<div class="fireplace-atmosphere" aria-hidden="true">
+  <div class="fireplace-halo"></div>
+  <div class="fireplace-frame">
+    <div class="firebox">
+      <span class="flame flame-one"></span>
+      <span class="flame flame-two"></span>
+      <span class="flame flame-three"></span>
+      <span class="flame flame-four"></span>
+      <span class="ember ember-one"></span>
+      <span class="ember ember-two"></span>
+      <span class="ember ember-three"></span>
+      <span class="fire-log log-one"></span>
+      <span class="fire-log log-two"></span>
+    </div>
+  </div>
+</div>
 <header><div class="wrap nav">
 <a class="brand" href="#">🌿 HER SECOND SPRING｜她的第二人生</a>
 <nav>
@@ -74,15 +280,25 @@ a{text-underline-offset:3px}:focus-visible{outline:3px solid #bd887c;outline-off
 </div></header>
 <main>
 <section class="wrap hero">
-<div>
+<div class="hero-copy">
 <span class="eyebrow"><span class="zh">給正在經歷人生轉變的妳</span><span class="en">For women navigating a new season of life</span></span>
 <h1><span class="zh">妳值得被理解，<br><em>也值得重新開始。</em></span><span class="en">You deserve to be understood<br><em>and to begin again.</em></span></h1>
-<p><span class="zh">認識身體的變化，照顧自己的情緒，找回興趣與連結。更年期不是人生的句點，而是重新認識自己的機會。</span><span class="en">Understand the changes in your body, care for your emotions, and rediscover interests and connection. Menopause is not the end of your story; it can be an opportunity to get to know yourself again.</span></p>
-<a class="btn" href="#symptoms"><span class="zh">從認識身體開始</span><span class="en">Explore your symptoms</span></a>
-</div><div class="art" aria-label="Flowers and spring illustration">🌷☀️🌿</div>
+<p><span class="zh">有些日子，身體和心情都需要多一點理解。這裡陪妳認識更年期的變化、練習照顧自己，也重新拾起喜歡的生活。</span><span class="en">Some days, both body and mind need a little more understanding. This is a place to learn about menopause, practise self-care, and rediscover the things you love.</span></p>
+<a class="btn hero-cta" href="#symptoms"><span class="zh">從認識身體開始</span><span class="en">Explore your symptoms</span></a>
+</div>
+<div class="art" aria-hidden="true">🌷</div>
+<a class="scroll-thread" href="#about" aria-label="向下探索 / Scroll to explore">
+<svg viewBox="0 0 78 100" role="img" aria-hidden="true">
+  <path class="thread-line" d="M39 6 C14 20 67 31 39 47 C12 63 63 72 39 86" />
+  <path class="needle" d="M39 9 L39 72" />
+  <circle class="needle-eye" cx="39" cy="8" r="4.5"/>
+  <path class="needle-point" d="M34 68 L39 80 L44 68"/>
+</svg>
+<span><span class="zh">沿著線，慢慢往下探索</span><span class="en">Follow the thread and explore</span></span>
+</a>
 </section>
 
-<section class="section about-section"><div class="wrap">
+<section class="section about-section" id="about"><div class="wrap">
 <div class="kicker"><span class="zh">先理解，再照顧自己</span><span class="en">UNDERSTAND YOURSELF, THEN CARE FOR YOURSELF</span></div>
 <div class="intro-panel">
 <h2><span class="zh">更年期，是一段過渡，不是妳的全部。</span><span class="en">Menopause is a transition—not the whole story of who you are.</span></h2>
@@ -291,6 +507,16 @@ function resetAppearance(){['hss-bg-color','hss-wallpaper','hss-wallpaper-image'
 function loadAppearance(){const color=localStorage.getItem('hss-bg-color');if(color)applyColor(color,false);const photo=localStorage.getItem('hss-wallpaper-image');if(photo){document.documentElement.style.setProperty('--wallpaper','url("'+photo+'")')}else{setWallpaper(localStorage.getItem('hss-wallpaper')||'garden',false)}const opacity=localStorage.getItem('hss-wallpaper-opacity');if(opacity)setWallpaperOpacity(opacity,false);const size=localStorage.getItem('hss-font-scale');if(size)setFontScale(size,false)}
 function filterResources(){const q=document.getElementById('resourceSearch').value.trim().toLowerCase();let visible=0;document.querySelectorAll('.resource-card').forEach(card=>{const match=card.dataset.search.includes(q);card.style.display=match?'flex':'none';if(match)visible++});document.getElementById('resourceCount').textContent=visible+' / 13 categories'}
 loadAppearance();
+
+
+(function(){
+  const hero=document.querySelector('.hero');
+  if(!hero||!('IntersectionObserver' in window)) return;
+  const observer=new IntersectionObserver(entries=>{
+    document.body.classList.toggle('home-view',entries[0].isIntersecting);
+  },{threshold:0.18});
+  observer.observe(hero);
+})();
 
 </script>
 </body></html>
