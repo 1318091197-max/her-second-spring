@@ -243,6 +243,77 @@ body.home-view .fireplace-atmosphere{opacity:0}
 }
 @media(prefers-reduced-motion:reduce){.flame,.ember,.fireplace-halo,.scroll-thread svg,.thread-line{animation:none!important}}
 
+
+/* Homepage photo hero: independent image layer prevents background path/layout glitches */
+.hero{
+  position:relative;display:flex;align-items:flex-end;justify-content:flex-start;
+  width:100%;max-width:none;min-height:680px;height:min(820px,calc(100svh - 72px));
+  margin:0;padding:0;overflow:hidden;isolation:isolate;background:#705b4c;
+  box-shadow:0 20px 55px rgba(16,9,5,.22)
+}
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;z-index:-2;display:block}
+.hero:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(45,28,19,.05) 20%,rgba(45,28,19,.0) 72%),linear-gradient(0deg,rgba(42,26,18,.32),transparent 55%)}
+.hero:after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,248,229,.58);pointer-events:none;z-index:4}
+.hero-copy{
+  position:relative;z-index:2;width:min(550px,calc(100% - 56px));max-width:550px;
+  margin:0 0 108px clamp(22px,7.5vw,128px);padding:28px 32px 26px;
+  border-radius:24px;color:#463126;
+  background:linear-gradient(140deg,rgba(250,243,229,.94),rgba(239,223,199,.91));
+  border:2px solid #b99670;outline:1px dashed rgba(91,60,40,.68);outline-offset:-9px;
+  box-shadow:0 16px 42px rgba(38,21,13,.25),inset 0 0 24px rgba(255,255,255,.48);
+  backdrop-filter:blur(5px)
+}
+.hero .eyebrow{color:#805a42;font-size:15px;letter-spacing:.08em}
+.hero h1{font:700 clamp(34px,3.7vw,54px)/1.16 Georgia,"Noto Serif TC",serif;color:#4b3023;margin:13px 0 16px;overflow-wrap:normal}
+.hero h1 .zh{display:block;font-size:1em;line-height:1.2}
+.hero h1 .en{display:block;font-size:.48em;line-height:1.28;margin-top:12px;color:#755c49;font-weight:400}
+.hero h1 em{color:#a85f58}
+.hero p{font-size:17px;line-height:1.72;color:#654b38;margin:0 0 20px}
+.hero .en{color:#735b49;font-size:.79em}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(145deg,#b56f61,#914e45);color:#fff7ea;border:2px solid #e2b9a1;box-shadow:0 6px 14px rgba(100,50,37,.22);padding:11px 21px;max-width:100%;white-space:normal}
+.hero-cta .en{display:inline;font-size:.76em;line-height:1.2;color:#fff0e1;margin:0}
+body.mode-en .hero h1 .en{font-size:clamp(32px,3.8vw,54px);margin-top:0}
+body.mode-en .hero h1 .zh{display:none}
+body.mode-zh .hero h1 .en{display:none}
+.scroll-thread{
+  position:absolute;z-index:5;right:clamp(18px,4vw,64px);left:auto;bottom:17px;transform:none;
+  display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;
+  color:#fff5e4;text-shadow:0 2px 5px rgba(36,20,12,.75);font-size:12px;letter-spacing:.035em;
+  padding:8px 12px;border-radius:22px;background:rgba(46,30,22,.47);border:1px solid rgba(255,245,224,.36)
+}
+.scroll-thread svg{width:38px;height:48px;overflow:visible;animation:thread-bob 2.1s ease-in-out infinite}
+.rail-toolbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin:20px 0 8px;flex-wrap:wrap}
+.rail-buttons{display:flex;gap:8px}
+.rail-control{width:44px;height:44px;border-radius:50%;border:2px solid #dfc29e;color:#f8eddd;background:linear-gradient(145deg,#98694e,#654431);font-size:28px;line-height:1;cursor:pointer;box-shadow:0 4px 0 rgba(35,21,13,.24),0 8px 14px rgba(8,5,3,.13);transition:transform .16s ease,filter .16s ease}
+.rail-control:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.horizontal-rail{display:flex;gap:18px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#b88b65 rgba(255,255,255,.12);padding:12px 6px 22px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.horizontal-rail>*{scroll-snap-align:start}
+.horizontal-rail::-webkit-scrollbar{height:9px}
+.horizontal-rail::-webkit-scrollbar-track{background:rgba(255,244,225,.12);border-radius:20px}
+.horizontal-rail::-webkit-scrollbar-thumb{background:#a77c58;border-radius:20px;border:2px solid rgba(255,244,225,.1)}
+.symptoms.horizontal-rail .symptom-tile{flex:0 0 clamp(250px,28vw,330px);width:clamp(250px,28vw,330px);min-height:154px;display:flex;flex-direction:column;justify-content:space-between;white-space:normal}
+.symptoms.horizontal-rail .symptom-tile strong{font-size:19px;line-height:1.4}
+.symptoms.horizontal-rail .symptom-tile .small{font-size:14px}
+.tile-hint{font-size:13px;font-weight:700;color:#644630;margin-top:8px}
+.hobby-rail .resource-card{flex:0 0 clamp(300px,31vw,370px);width:clamp(300px,31vw,370px);min-height:455px;white-space:normal}
+.resource-tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:20px 0 10px}
+.resource-tools input{flex:1;min-width:240px}
+@media(max-width:760px){
+  .hero{min-height:710px;height:calc(100svh - 65px);max-height:860px;background-position:center}
+  .hero-photo{object-position:56% 30%}
+  .hero-copy{width:calc(100% - 36px);max-width:500px;margin:0 18px 100px;padding:21px 23px 22px}
+  .hero h1{font-size:clamp(33px,8.3vw,44px);line-height:1.2}
+  .hero h1 .en{font-size:.46em}
+  .hero p{font-size:15px;line-height:1.7}
+  .hero-cta{font-size:15px;min-height:43px;padding:9px 16px}
+  .scroll-thread{right:16px;bottom:10px;padding:6px 9px;font-size:11px}
+  .scroll-thread svg{width:30px;height:38px}
+  .symptoms.horizontal-rail .symptom-tile{flex-basis:82%;width:82%;min-height:142px}
+  .hobby-rail .resource-card{flex-basis:84%;width:84%;min-height:420px}
+  .rail-toolbar{align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){.scroll-thread svg,.thread-line{animation:none!important}}
+
 </style>
 </head>
 <body class="mode-bi home-view">
@@ -279,14 +350,14 @@ body.home-view .fireplace-atmosphere{opacity:0}
 </div>
 </div></header>
 <main>
-<section class="wrap hero">
+<section class="hero">
+<img class="hero-photo" src="/her-second-spring/assets/mother-daughter-hero.webp" alt="" fetchpriority="high" decoding="async">
 <div class="hero-copy">
 <span class="eyebrow"><span class="zh">給正在經歷人生轉變的妳</span><span class="en">For women navigating a new season of life</span></span>
 <h1><span class="zh">妳值得被理解，<br><em>也值得重新開始。</em></span><span class="en">You deserve to be understood<br><em>and to begin again.</em></span></h1>
 <p><span class="zh">有些日子，身體和心情都需要多一點理解。這裡陪妳認識更年期的變化、練習照顧自己，也重新拾起喜歡的生活。</span><span class="en">Some days, both body and mind need a little more understanding. This is a place to learn about menopause, practise self-care, and rediscover the things you love.</span></p>
 <a class="btn hero-cta" href="#symptoms"><span class="zh">從認識身體開始</span><span class="en">Explore your symptoms</span></a>
 </div>
-<div class="art" aria-hidden="true">🌷</div>
 <a class="scroll-thread" href="#about" aria-label="向下探索 / Scroll to explore">
 <svg viewBox="0 0 78 100" role="img" aria-hidden="true">
   <path class="thread-line" d="M39 6 C14 20 67 31 39 47 C12 63 63 72 39 86" />
@@ -322,7 +393,7 @@ body.home-view .fireplace-atmosphere{opacity:0}
 <section class="section" id="symptoms"><div class="wrap">
 <h2><span class="zh">認識更年期常見的 16 種變化</span><span class="en">16 Common Changes Around Menopause</span></h2>
 <p class="sub"><span class="zh">點選症狀了解可能表現、日常照顧方式與就醫提醒。症狀也可能有其他原因，不能單憑網頁自行診斷。</span><span class="en">Select a symptom to learn about possible experiences, everyday care, and when to seek medical advice. These symptoms can have other causes; this website cannot diagnose you.</span></p>
-<div class="grid symptoms" id="symptomGrid"></div><div class="detail" id="detail" aria-live="polite"></div>
+<div class="rail-toolbar"><span class="small"><span class="zh">左右滑動，慢慢認識每一種變化</span><span class="en">Swipe horizontally to explore each symptom</span></span><div class="rail-buttons"><button class="rail-control" onclick="scrollRail('symptomGrid',-1)" aria-label="Previous symptoms">‹</button><button class="rail-control" onclick="scrollRail('symptomGrid',1)" aria-label="Next symptoms">›</button></div></div><div class="horizontal-rail symptoms" id="symptomGrid" tabindex="0" aria-label="Menopause symptoms carousel"></div><div class="detail" id="detail" aria-live="polite"></div>
 <div class="warning"><strong><span class="zh">重要就醫提醒</span><span class="en">Important medical warning</span></strong>
 <p><span class="zh">若停經 12 個月後再次出血，請儘快就醫評估；胸痛、呼吸困難、昏厥或突發神經症狀請立即尋求急救。</span><span class="en">Bleeding after 12 months without a period should be medically assessed promptly. Seek emergency care for chest pain, difficulty breathing, fainting, or sudden neurological symptoms.</span></p></div>
 </div></section>
@@ -360,7 +431,7 @@ body.home-view .fireplace-atmosphere{opacity:0}
 <h2><span class="zh">興趣生活導航：妳喜歡的，這裡都可以開始。</span><span class="en">A Life & Interests Guide: Start with Something You Love.</span></h2>
 <p class="sub"><span class="zh">看劇、讀書、聽音樂、種花、旅行、運動、上課或認識朋友——興趣不必有用，也不必做得很好。它可以只是讓妳期待明天的一件小事。以下整理臺灣及國際常用的公開資源；部分服務需要註冊、借閱證或付費，實際內容依網站規定及所在地區為準。</span><span class="en">Watch a series, read, listen to music, grow plants, travel, move your body, take a class, or meet new people. A hobby does not have to be productive or perfect; it can simply be something to look forward to. These links include Taiwan-based and international resources. Some require registration, a library card, or payment, and availability depends on each service and region.</span></p>
 <div class="resource-tools"><input id="resourceSearch" type="search" oninput="filterResources()" placeholder="搜尋興趣或網站名稱 / Search interests or websites"><span class="small" id="resourceCount">13 個興趣分類 / 13 interest categories</span></div>
-<div class="grid" id="resourceGrid">
+<div class="rail-toolbar"><span class="small"><span class="zh">選擇一張卡片，向左右探索更多興趣</span><span class="en">Browse more interests by scrolling sideways</span></span><div class="rail-buttons"><button class="rail-control" onclick="scrollRail('resourceGrid',-1)" aria-label="Previous interests">‹</button><button class="rail-control" onclick="scrollRail('resourceGrid',1)" aria-label="Next interests">›</button></div></div><div class="horizontal-rail hobby-rail" id="resourceGrid" tabindex="0" aria-label="Hobbies and interests carousel">
 <article class="card resource-card" data-search="追劇・電影・紀錄片 drama, films and documentaries 想看臺灣戲劇、紀錄片、電影或國際影集，可以從公共媒體與合法影音平台開始。不同平台有些內容免費、有些需要會員；節目授權也可能因地區而不同。 explore taiwanese drama, documentaries, films, and international series through public media and licensed streaming services. some content is free while other titles require a subscription; availability may vary by region. 公視+ pts+ 公視戲劇與電影節目 netflix 愛奇藝國際版 iqiyi">
 <div class="kicker">01 · 🎬 <span class="zh">興趣提案</span><span class="en">IDEA</span></div>
 <h3><span class="zh">追劇・電影・紀錄片</span><span class="en">Drama, films and documentaries</span></h3><p><span class="zh">想看臺灣戲劇、紀錄片、電影或國際影集，可以從公共媒體與合法影音平台開始。不同平台有些內容免費、有些需要會員；節目授權也可能因地區而不同。</span><span class="en">Explore Taiwanese drama, documentaries, films, and international series through public media and licensed streaming services. Some content is free while other titles require a subscription; availability may vary by region.</span></p>
@@ -482,7 +553,7 @@ const data=[
 {n:"體重與體態變化",e:"Weight and body composition changes",d:"年齡、活動量、睡眠及荷爾蒙等因素可能共同影響體態。",de:"Age, activity, sleep, hormones, and other factors may all influence body composition.",a:"以均衡飲食、肌力與日常活動照顧健康，不必追求單一體型標準。",ae:"Support your health with balanced eating, strength-building activity, and everyday movement. There is no single body shape you need to achieve."}
 ];
 function pair(z,e){return '<span class="zh">'+z+'</span><span class="en">'+e+'</span>'}
-document.getElementById('symptomGrid').innerHTML=data.map((d,i)=>'<button onclick="showDetail('+i+')"><strong>'+String(i+1).padStart(2,'0')+' · '+pair(d.n,d.e)+'</strong><span class="small">'+pair('點擊查看說明與照顧方式','Select to read the explanation and care suggestions')+'</span></button>').join('');
+document.getElementById('symptomGrid').innerHTML=data.map((d,i)=>'<button class="symptom-tile" onclick="showDetail('+i+')"><strong>'+String(i+1).padStart(2,'0')+' · '+pair(d.n,d.e)+'</strong><span class="small">'+pair('點擊查看說明與照顧方式','Select to read the explanation and care suggestions')+'</span><span class="tile-hint">'+pair('查看照顧建議　↗','Open care guide　↗')+'</span></button>').join('');
 function showDetail(i){const d=data[i],el=document.getElementById('detail');el.style.display='block';el.innerHTML='<h3>'+pair(d.n,d.e)+'</h3><div class="grid"><article class="stage-card"><h4>'+pair('妳可能會有的感受','What you may notice')+'</h4><p>'+pair(d.d,d.de)+'</p></article><article class="stage-card"><h4>'+pair('可以先試試的照顧方式','Everyday care ideas')+'</h4><p>'+pair(d.a,d.ae)+'</p></article></div><h4>'+pair('為什麼會發生？','Why might this happen?')+'</h4><p>'+pair('圍絕經期的荷爾蒙變化可能參與其中，但睡眠、壓力、藥物、其他身體狀況與生活因素也可能造成相似感受。請不要只憑這個症狀判斷自己已經進入更年期。','Hormonal changes during the menopause transition may play a role, but sleep, stress, medicines, other health conditions, and lifestyle factors can also cause similar experiences. This symptom alone cannot tell you whether you are in menopause.')+'</p><h4>'+pair('什麼時候要尋求醫療協助？','When should you seek medical advice?')+'</h4><p>'+pair('如果症狀持續、明顯惡化、影響日常生活，或讓妳感到擔心，請向家庭醫學科或婦產科醫師諮詢。若出現胸痛、呼吸困難、昏厥、突發劇烈頭痛或停經 12 個月後再次出血，應立即或儘速接受醫療評估。','Talk with a family doctor or gynecologist if symptoms persist, worsen, affect daily life, or worry you. Seek urgent medical assessment for chest pain, difficulty breathing, fainting, a sudden severe headache, or bleeding after 12 months without a period.')+'</p><div class="resource-links"><a href="https://www.who.int/zh/news-room/fact-sheets/detail/menopause" target="_blank" rel="noopener">WHO ↗</a><a href="https://www.nice.org.uk/guidance/ng23/chapter/Recommendations" target="_blank" rel="noopener">NICE NG23 ↗</a><a href="https://www.nhs.uk/conditions/menopause-and-perimenopause/symptoms/" target="_blank" rel="noopener">NHS ↗</a><a href="https://www.hpa.gov.tw/Pages/List.aspx?nodeid=218" target="_blank" rel="noopener">國民健康署 ↗</a></div><p class="small">'+pair('以上為一般健康教育，不能取代個人診斷或治療。','This is general health education, not a substitute for individual diagnosis or treatment.')+'</p>';el.scrollIntoView({behavior:'smooth',block:'nearest'})}
 function setMode(mode){document.body.classList.remove('mode-bi','mode-zh','mode-en');document.body.classList.add('mode-'+mode);document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));document.documentElement.lang=mode==='en'?'en': 'zh-Hant'}
 function chat(){const v=document.getElementById('say').value.trim();if(!v)return;const box=document.getElementById('messages');box.innerHTML+='<div class="bubble"><b>'+pair('妳：','You:')+'</b>'+escapeHtml(v)+'</div><div class="bubble"><b>'+pair('知心姐姐：','Your Companion:')+'</b>'+pair('謝謝妳願意說出來。這聽起來可能讓妳不太舒服。可以先從一件最困擾妳的事開始：它大約持續多久了？是否影響睡眠或日常生活？如果身體不適持續、加重或讓妳擔心，請和醫療專業人員討論。這是示範回覆，不能代替醫療評估。','Thank you for sharing this. It sounds uncomfortable. We can begin with what troubles you most: how long has it been happening, and does it affect your sleep or daily life? If symptoms persist, worsen, or worry you, please discuss them with a healthcare professional. This is a scripted demo, not a medical assessment.')+'</div>';document.getElementById('say').value=''}
@@ -505,6 +576,7 @@ function setFontScale(value,save=true){document.documentElement.style.setPropert
 function uploadWallpaper(event){const file=event.target.files&&event.target.files[0];if(!file)return;if(!file.type.startsWith('image/')){alert('請選擇圖片檔案 / Please choose an image file.');return}const reader=new FileReader();reader.onload=function(e){const img=new Image();img.onload=function(){const max=1600,ratio=Math.min(1,max/Math.max(img.width,img.height)),canvas=document.createElement('canvas');canvas.width=Math.round(img.width*ratio);canvas.height=Math.round(img.height*ratio);const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,canvas.width,canvas.height);const compressed=canvas.toDataURL('image/jpeg',0.72);try{localStorage.setItem('hss-wallpaper-image',compressed);localStorage.setItem('hss-wallpaper','uploaded');document.documentElement.style.setProperty('--wallpaper','url("'+compressed+'")');setWallpaperOpacity('0.32')}catch(err){alert('圖片太大，無法儲存在此瀏覽器。請改用較小的圖片。 / Image could not be saved. Please choose a smaller file.')}};img.onerror=function(){alert('無法讀取這張圖片。 / Could not read this image.')};img.src=e.target.result};reader.readAsDataURL(file)}
 function resetAppearance(){['hss-bg-color','hss-wallpaper','hss-wallpaper-image','hss-wallpaper-opacity','hss-font-scale'].forEach(k=>localStorage.removeItem(k));applyColor('#f5f1e7',false);setWallpaper('garden',false);setWallpaperOpacity('0.72',false);setFontScale('1',false);const file=document.getElementById('wallpaperFile');if(file)file.value=''}
 function loadAppearance(){const color=localStorage.getItem('hss-bg-color');if(color)applyColor(color,false);const photo=localStorage.getItem('hss-wallpaper-image');if(photo){document.documentElement.style.setProperty('--wallpaper','url("'+photo+'")')}else{setWallpaper(localStorage.getItem('hss-wallpaper')||'garden',false)}const opacity=localStorage.getItem('hss-wallpaper-opacity');if(opacity)setWallpaperOpacity(opacity,false);const size=localStorage.getItem('hss-font-scale');if(size)setFontScale(size,false)}
+function scrollRail(id,direction){const rail=document.getElementById(id);if(!rail)return;const distance=Math.max(270,rail.clientWidth*.78);rail.scrollBy({left:direction*distance,behavior:'smooth'});}
 function filterResources(){const q=document.getElementById('resourceSearch').value.trim().toLowerCase();let visible=0;document.querySelectorAll('.resource-card').forEach(card=>{const match=card.dataset.search.includes(q);card.style.display=match?'flex':'none';if(match)visible++});document.getElementById('resourceCount').textContent=visible+' / 13 categories'}
 loadAppearance();
 
